@@ -33,6 +33,8 @@ public class MyDaemonProgramNodeContribution implements ProgramNodeContribution 
 	@Override
 	public void openView() {
 		view.setNameText(getName());
+		// TODO: daemonRate should be configurable in the installation node
+		int daemonRate = 100;
 
 		//UI updates from non-GUI threads must use EventQueue.invokeLater (or SwingUtilities.invokeLater)
 		uiTimer = new Timer(true);
@@ -46,12 +48,12 @@ public class MyDaemonProgramNodeContribution implements ProgramNodeContribution 
 					}
 				});
 			}
-		}, 0, 1000);
+		}, 0, daemonRate);
 	}
 
 	@Override
 	public void closeView() {
-		uiTimer.cancel();
+		// uiTimer.cancel();
 	}
 
 	@Override
@@ -70,17 +72,23 @@ public class MyDaemonProgramNodeContribution implements ProgramNodeContribution 
 		// Note, alternatively plain sockets can be used.
 		writer.assign("mydaemon_message", getInstallation().getXMLRPCVariable() + ".get_message(\"" + getName() + "\")");
 		writer.assign("mydaemon_title", getInstallation().getXMLRPCVariable() + ".get_title()");
-		writer.appendLine("popup(mydaemon_message, mydaemon_title, False, False, blocking=True)");
+		writer.assign("target_action", getInstallation().getXMLRPCVariable() + ".capture()");
+		writer.appendLine("textmsg(\"received target_action: \", target_action)");
+		// writer.appendLine("popup(mydaemon_message, mydaemon_title, False, False, blocking=True)");
 		writer.writeChildren();
 	}
 
 	private void updatePreview() {
 		String title;
 		String message;
+		// int captureResponse;
 		try {
 			// Provide a real-time preview of the daemon state
 			title = getInstallation().getXmlRpcDaemonInterface().getTitle();
 			message = getInstallation().getXmlRpcDaemonInterface().getMessage(getName());
+			// TODO: get ip and port from installation later
+			// EXPLANATION: so basically this is how you can call a method on the daemon
+			// captureResponse = getInstallation().getXmlRpcDaemonInterface().capture("192.168.56.1", "9090");
 		} catch (Exception e) {
 			System.err.println("Could not retrieve essential data from the daemon process for the preview.");
 			title = message = "<Daemon disconnected>";

@@ -70,9 +70,6 @@ public class MyDaemonInstallationNodeContribution implements InstallationNodeCon
 
 	@Override
 	public void closeView() {
-		if (uiTimer != null) {
-			uiTimer.cancel();
-		}
 	}
 
 	@Override

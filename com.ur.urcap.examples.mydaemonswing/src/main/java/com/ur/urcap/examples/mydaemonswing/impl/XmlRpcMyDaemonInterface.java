@@ -53,6 +53,14 @@ public class XmlRpcMyDaemonInterface {
 		return processString(result);
 	}
 
+	public int capture(String ip, String port) throws XmlRpcException, UnknownResponseException {
+		ArrayList<String> args = new ArrayList<String>();
+		args.add(ip);
+		args.add(port);
+		Object result = client.execute("capture", args);
+		return processInteger(result);
+	}
+
 	private boolean processBoolean(Object response) throws UnknownResponseException {
 		if (response instanceof Boolean) {
 			Boolean val = (Boolean) response;
@@ -65,6 +73,14 @@ public class XmlRpcMyDaemonInterface {
 	private String processString(Object response) throws UnknownResponseException {
 		if (response instanceof String) {
 			return (String) response;
+		} else {
+			throw new UnknownResponseException();
+		}
+	}
+
+	private Integer processInteger(Object response) throws UnknownResponseException {
+		if (response instanceof Integer) {
+			return (Integer) response;
 		} else {
 			throw new UnknownResponseException();
 		}
