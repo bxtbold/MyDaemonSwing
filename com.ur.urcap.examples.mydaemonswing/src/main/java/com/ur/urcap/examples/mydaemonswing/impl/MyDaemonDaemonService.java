@@ -18,16 +18,14 @@ public class MyDaemonDaemonService implements DaemonService {
 	public void init(DaemonContribution daemonContribution) {
 		this.daemonContribution = daemonContribution;
 		try {
-			daemonContribution.installResource(new URL("file:com/ur/urcap/examples/mydaemonswing/impl/daemon/"));
+			daemonContribution.installResource(new URL("file:daemon/"));
 		} catch (MalformedURLException e) {	}
 	}
 
 	@Override
 	public URL getExecutable() {
 		try {
-			// Two equivalent example daemons are available:
-			return new URL("file:com/ur/urcap/examples/mydaemonswing/impl/daemon/hello-world.py"); // Python executable
-//			return new URL("file:com/ur/urcap/examples/mydaemonswing/impl/daemon/HelloWorld"); // C++ executable
+			return new URL("file:daemon/daemon.py"); // Python executable
 		} catch (MalformedURLException e) {
 			return null;
 		}
@@ -36,5 +34,4 @@ public class MyDaemonDaemonService implements DaemonService {
 	public DaemonContribution getDaemon() {
 		return daemonContribution;
 	}
-
 }

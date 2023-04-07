@@ -5,10 +5,10 @@ import com.ur.urcap.api.contribution.program.ContributionConfiguration;
 import com.ur.urcap.api.contribution.program.CreationContext;
 import com.ur.urcap.api.contribution.program.ProgramAPIProvider;
 import com.ur.urcap.api.contribution.program.swing.SwingProgramNodeService;
-import com.ur.urcap.api.domain.SystemAPI;
 import com.ur.urcap.api.domain.data.DataModel;
 
 import java.util.Locale;
+
 
 public class MyDaemonProgramNodeService implements SwingProgramNodeService<MyDaemonProgramNodeContribution, MyDaemonProgramNodeView> {
 
@@ -17,24 +17,21 @@ public class MyDaemonProgramNodeService implements SwingProgramNodeService<MyDae
 
 	@Override
 	public String getId() {
-		return "MyDaemonSwingNode";
+		return "TestDaemonSwingNode";
 	}
 
 	@Override
 	public String getTitle(Locale locale) {
-		return "My Daemon";
+		return "Test Daemon";
 	}
 
 	@Override
 	public void configureContribution(ContributionConfiguration configuration) {
-		configuration.setChildrenAllowed(true);
 	}
 
 	@Override
 	public MyDaemonProgramNodeView createView(ViewAPIProvider apiProvider) {
-		SystemAPI systemAPI = apiProvider.getSystemAPI();
-		Style style = systemAPI.getSoftwareVersion().getMajorVersion() >= 5 ? new V5Style() : new V3Style();
-		return new MyDaemonProgramNodeView(style);
+		return new MyDaemonProgramNodeView();
 	}
 
 	@Override

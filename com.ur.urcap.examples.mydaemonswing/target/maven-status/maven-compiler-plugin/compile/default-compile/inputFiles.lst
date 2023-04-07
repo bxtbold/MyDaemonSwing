@@ -1,13 +1,10 @@
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/UnknownResponseException.java
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/V3Style.java
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonDaemonService.java
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonProgramNodeService.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/Activator.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonProgramNodeView.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonProgramNodeContribution.java
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/Style.java
+/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/UnknownResponseException.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonInstallationNodeView.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonInstallationNodeContribution.java
-/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/V5Style.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/XmlRpcMyDaemonInterface.java
 /home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonInstallationNodeService.java
+/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonDaemonService.java
+/home/plaif/urcaps_ws/MyDaemonSwing/com.ur.urcap.examples.mydaemonswing/src/main/java/com/ur/urcap/examples/mydaemonswing/impl/MyDaemonProgramNodeService.java

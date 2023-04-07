@@ -20,63 +20,35 @@ public class XmlRpcMyDaemonInterface {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-		config.setConnectionTimeout(1000); //1s
+		config.setConnectionTimeout(1000); // 1s
 		client = new XmlRpcClient();
 		client.setConfig(config);
 	}
 
 	public boolean isReachable() {
 		try {
-			client.execute("get_title", new ArrayList<String>());
+			client.execute("is_alive", new ArrayList<String>());
 			return true;
 		} catch (XmlRpcException e) {
 			return false;
 		}
 	}
 
-	public String getTitle() throws XmlRpcException, UnknownResponseException {
-		Object result = client.execute("get_title", new ArrayList<String>());
-		return processString(result);
-	}
-
-	public String setTitle(String title) throws XmlRpcException, UnknownResponseException {
-		ArrayList<String> args = new ArrayList<String>();
-		args.add(title);
-		Object result = client.execute("set_title", args);
-		return processString(result);
-	}
-
-	public String getMessage(String name) throws XmlRpcException, UnknownResponseException {
-		ArrayList<String> args = new ArrayList<String>();
-		args.add(name);
-		Object result = client.execute("get_message", args);
-		return processString(result);
-	}
-
-	public int capture(String ip, String port) throws XmlRpcException, UnknownResponseException {
+	public int target_action(String ip, String port) throws XmlRpcException, UnknownResponseException {
 		ArrayList<String> args = new ArrayList<String>();
 		args.add(ip);
 		args.add(port);
-		Object result = client.execute("capture", args);
+		Object result = client.execute("target_action", args);
 		return processInteger(result);
 	}
 
-	private boolean processBoolean(Object response) throws UnknownResponseException {
-		if (response instanceof Boolean) {
-			Boolean val = (Boolean) response;
-			return val.booleanValue();
-		} else {
-			throw new UnknownResponseException();
-		}
-	}
-
-	private String processString(Object response) throws UnknownResponseException {
-		if (response instanceof String) {
-			return (String) response;
-		} else {
-			throw new UnknownResponseException();
-		}
-	}
+	// private String processString(Object response) throws UnknownResponseException {
+	// 	if (response instanceof String) {
+	// 		return (String) response;
+	// 	} else {
+	// 		throw new UnknownResponseException();
+	// 	}
+	// }
 
 	private Integer processInteger(Object response) throws UnknownResponseException {
 		if (response instanceof Integer) {
